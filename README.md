@@ -1,16 +1,16 @@
-# Fbctl Guide
+# LTCLI Guide
 
 [Installing Prerequisites](#installing-prerequisites)
 
-[Fbctl Install](#fbctl-install)
+[LTCLI Install](#LTCLI-install)
 
-[Fbctl 실행하기](#fbctl-실행하기)
+[LTCLI 실행하기](#LTCLI-실행하기)
 
 [Deploy](#deploy)
 
 [클러스터 생성](#클러스터-생성)
 
-[Flashbase Version Update](#flashbase-version-update)
+[Lightning DB Version Update](#lightningdb-version-update)
 
 [Re-Deploy](#re-deploy)
 
@@ -25,45 +25,45 @@
 
 ## Installing Prerequisites
 
-* Installing prerequisites for flashbase
+* Installing prerequisites for lightningdb
 
 * Python ==2.7, >=3.5
 
 </br>
 </br>
 
-## Fbctl Install
+## LTCLI Install
 
 ```
-$ pip insatll fbctl
+$ pip insatll ltcli --upgrade --user
 ```
 
 </br>
 </br>
 
-## Fbctl 실행하기
+## LTCLI 실행하기
 
 실행하기 전에 환경변수 FBPATH 설정이 필요합니다. 미설정시 아래와 같이 에러메시지가 발생합니다.
 
 ```
-To start using fbctl, you should set env FBPATH
+To start using LTCLI, you should set env FBPATH
 ex)
 export FBPATH=$HOME/.flashbase
 ```
 
 </br>
 
-설치 및 설정완료 후 아래와 같이 `fbctl` 을 입력하면 fbctl이 실행됩니다.
+설치 및 설정완료 후 아래와 같이 `ltcli` 을 입력하면 LTCLI이 실행됩니다.
 ```
-$ fbcli
+$ ltcli
 ```
 
 </br>
 
-fbctl 최초접속시 base_directory를 물어봅니다. base_directory는 flashbase의 root path 입니다.
+LTCLI 최초접속시 base_directory를 물어봅니다. base_directory는 lightningdb의 root path 입니다.
 
 ```
-Type base directory of flashbase [~/tsr2]
+Type base directory of LightningDB [~/tsr2]
 ~/tsr2
 OK, ~/tsr2
 ```
@@ -77,13 +77,13 @@ OK, ~/tsr2
 
 정상적으로 접속이 되면 가장 최근에 접속했던 cluster에 접속되며, 없는 경우 `-` 로 표시됩니다.
 
-fbctl의 prompt 형식은 `<user-name>@flashbase:<cluster-id>>` 입니다.
+LTCLI의 prompt 형식은 `<user-name>@lightningdb:<cluster-id>>` 입니다.
 
 ex)
 
 ```
-root@flashbase:->
-root@flashbase:1>
+root@lightningdb:->
+root@lightningdb:1>
 ```
 
 </br>
@@ -91,7 +91,7 @@ root@flashbase:1>
 
 ## Deploy
 
-deploy는 flashbase 설치과정입니다. 클러스터마다 deploy가 이루어져야 합니다.
+deploy는 lightningdb 설치과정입니다. 클러스터마다 deploy가 이루어져야 합니다.
 
 ```
 > deploy 1
@@ -120,14 +120,14 @@ deploy는 flashbase 설치과정입니다. 클러스터마다 deploy가 이루�
 Select installer
 
     [ INSTALLER LIST ]
-    (1) tsr2-installer.bin.flashbase_v1.1.10.centos
-    (2) tsr2-installer.bin.flashbase_v1.1.09.centos
-    (3) tsr2-installer.bin.flashbase_v1.1.08.centos
+    (1) tsr2-installer.bin.lightningdb_v1.1.10.centos
+    (2) tsr2-installer.bin.lightningdb_v1.1.09.centos
+    (3) tsr2-installer.bin.lightningdb_v1.1.08.centos
 
 Please enter the number, file path or url of the installer you want to use.
 you can also add file in list by copy to '$FBPATH/releases/'
 1
-OK, tsr2-installer.bin.flashbase_v1.1.10.centos
+OK, tsr2-installer.bin.lightningdb_v1.1.10.centos
 ```
 
 installer를 선택합니다. 숫자입력을 통해 리스트에서 선택할 수 있으며, 파일의 경로나 url을 통해서도 선택할 수 있습니다.
@@ -233,7 +233,7 @@ OK, /sata_ssd/ssd_
 +-------------------+---------------------------------------------+
 | NAME              | VALUE                                       |
 +-------------------+---------------------------------------------+
-| installer         | tsr2-installer.bin.flashbase_v1.1.10.centos |
+| installer         | tsr2-installer.bin.lightningdb_v1.1.10.centos |
 | nodes             | nodeA                                       |
 |                   | nodeB                                       |
 |                   | nodeC                                       |
@@ -494,7 +494,7 @@ Node nodeA:18100 is already in a cluster
 #### Connection Error
 
 ```
-root@flashbase:32> cluster create
+root@lightningdb:32> cluster create
 >>> Creating cluster
 +-------+-------+--------+
 | HOST  | PORT  | TYPE   |
@@ -517,9 +517,9 @@ nodeD:18100 - [Errno 111] Connection refused
 </br>
 </br>
 
-## Flashbase Version Update
+## lightningdb Version Update
 
-flashbase version의 변경은 `deploy` 명령어를 통해 진행할 수 있습니다.
+lightningdb version의 변경은 `deploy` 명령어를 통해 진행할 수 있습니다.
 
 </br>
 
@@ -546,9 +546,9 @@ y
 Select installer
 
     [ INSTALLER LIST ]
-    (1) tsr2-installer.bin.flashbase_v1.1.10.centos
-    (2) tsr2-installer.bin.flashbase_v1.1.09.centos
-    (3) tsr2-installer.bin.flashbase_v1.1.08.centos
+    (1) tsr2-installer.bin.lightningdb_v1.1.10.centos
+    (2) tsr2-installer.bin.lightningdb_v1.1.09.centos
+    (3) tsr2-installer.bin.lightningdb_v1.1.08.centos
 
 Please enter the number, file path or url of the installer you want to use.
 you can also add file in list by copy to '$FBPATH/releases/'
@@ -577,7 +577,7 @@ y
 +-----------------+---------------------------------------------+
 | NAME            | VALUE                                       |
 +-----------------+---------------------------------------------+
-| installer       | tsr2-installer.bin.flashbase_v1.1.10.centos |
+| installer       | tsr2-installer.bin.lightningdb_v1.1.10.centos |
 | nodes           | nodeA                                       |
 |                 | nodeB                                       |
 |                 | nodeC                                       |
@@ -685,15 +685,15 @@ y
 Select installer
 
     [ INSTALLER LIST ]
-    (1) tsr2-installer.bin.flashbase_v1.1.10.centos
-    (2) tsr2-installer.bin.flashbase_v1.1.09.centos
-    (3) tsr2-installer.bin.flashbase_v1.1.08.centos
+    (1) tsr2-installer.bin.lightningdb_v1.1.10.centos
+    (2) tsr2-installer.bin.lightningdb_v1.1.09.centos
+    (3) tsr2-installer.bin.lightningdb_v1.1.08.centos
 
 Please enter the number, file path or url of the installer you want to use.
 you can also add file in list by copy to '$FBPATH/releases/'
 ```
 
-다시 설치할 flashbase의 installer를 선택해주세요.
+다시 설치할 lightningdb의 installer를 선택해주세요.
 
 변경하지 않는 경우 기존에 사용했던 installer를 선택하시면 됩니다.
 
@@ -769,7 +769,7 @@ y
 +-----------------+---------------------------------------------+
 | NAME            | VALUE                                       |
 +-----------------+---------------------------------------------+
-| installer       | tsr2-installer.bin.flashbase_v1.1.10.centos |
+| installer       | tsr2-installer.bin.lightningdb_v1.1.10.centos |
 | nodes           | nodeA                                       |
 |                 | nodeB                                       |
 |                 | nodeC                                       |
@@ -836,12 +836,12 @@ Enter 0 in replicas as shown below when deploy.
 Select installer
 
     [ INSTALLER LIST ]
-    (1) tsr2-installer.bin.flashbase_v1.1.10.centos
+    (1) tsr2-installer.bin.lightningdb_v1.1.10.centos
 
 Please enter the number, file path or url of the installer you want to use.
 you can also add file in list by copy to '$FBPATH/releases/'
 1
-OK, tsr2-installer.bin.flashbase_v1.1.10.centos
+OK, tsr2-installer.bin.lightningdb_v1.1.10.centos
 Please type host list separated by comma(,) [127.0.0.1]
 127.0.0.1
 OK, ['127.0.0.1']
@@ -868,7 +868,7 @@ OK, /sata_ssd/ssd_
 +-------------------+---------------------------------------------+
 | NAME              | VALUE                                       |
 +-------------------+---------------------------------------------+
-| installer         | tsr2-installer.bin.flashbase_v1.1.10.centos |
+| installer         | tsr2-installer.bin.lightningdb_v1.1.10.centos |
 | hosts             | 127.0.0.1                                   |
 | master ports      | 18300                                       |
 | ssd count         | 3                                           |
@@ -977,7 +977,7 @@ Check status of hosts...
 OK
 sync conf
 Complete edit
-root@flashbase:3> cluster add-slave
+root@lightningdb:3> cluster add-slave
 Check status of hosts...
 OK
 Check cluster exist...
@@ -1123,4 +1123,4 @@ starting org.apache.spark.sql.hive.thriftserver.HiveThriftServer2, logging to <l
 
 최대 1GiB 만큼 저장하며 초과하는 경우 최신순으로 rolling update가 진행됩니다.
 
-fbctl의 로그만 저장됩니다. 클러스터, thriftserver 등의 로그는 별도의 명령어를 사용하세요.
+LTCLI의 로그만 저장됩니다. 클러스터, thriftserver 등의 로그는 별도의 명령어를 사용하세요.
