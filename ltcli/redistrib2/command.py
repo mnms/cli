@@ -139,7 +139,7 @@ def create(host_port_list, max_slots=1024):
                              max_slots)
             sleep(0.02)
             logging.info('Add %d slots to %s:%d', slots_each, t.host, t.port)
-        msg = message.get('check_cluster_state_asign_slot')
+        msg = message.get('check_cluster_state_assign_slot')
         logger.info(msg)
         for t in conns:
             _poll_check_status(t)
