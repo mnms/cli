@@ -149,7 +149,7 @@
     "save_config_to_template": "Save config to template...",
     "cluster_meet": "Cluster meet...",
     "adding_slot": "Adding slots...",
-    "check_cluster_state_asign_slot": "Check cluster state and asign slot...",
+    "check_cluster_state_assign_slot": "Check cluster state and assign slot...",
     "try_connection": "Connecting...",
     "loading_dataset": "LOADING Redis is loading the dataset in memory.",
     "apply_after_restart": "Applies after restart."
